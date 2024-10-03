@@ -24,17 +24,15 @@ public class YoutubeActivity extends YouTubeBaseActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //       setContentView(R.layout.activity_youtube);
-
+        setContentView(R.layout.activity_youtube);
 
         ConstraintLayout layout = (ConstraintLayout) getLayoutInflater().inflate(R.layout.activity_youtube, null);
         setContentView(layout);
 
-
-//        Button button1 = new Button(this);
-//        button1.setLayoutParams(new ConstraintLayout.LayoutParams(300,80));
-//        button1.setText("Button added");
-//        layout.addView(button1);
+        Button button1 = new Button(this);
+        button1.setLayoutParams(new ConstraintLayout.LayoutParams(300,80));
+        button1.setText("Button added");
+        layout.addView(button1);
 
         YouTubePlayerView playerView = new YouTubePlayerView(this);
         playerView.setLayoutParams(new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
@@ -54,6 +52,7 @@ public class YoutubeActivity extends YouTubeBaseActivity
             youTubePlayer.cueVideo(YOUTUBE_VIDEO_ID);
         }
     }
+                
     @Override
     public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
         final int REQUEST_CODE = 1;
@@ -66,67 +65,50 @@ public class YoutubeActivity extends YouTubeBaseActivity
         }
     }
 
-
     private final YouTubePlayer.PlayerStateChangeListener playerStateChangeListener = new YouTubePlayer.PlayerStateChangeListener() {
         @Override
-        public void onLoading() {
-
-        }
+        public void onLoading() { }
 
         @Override
-        public void onLoaded(String s) {
-
-        }
+        public void onLoaded(String s) { }
 
         @Override
-        public void onAdStarted() {
-
-        }
+        public void onAdStarted() { }
 
         @Override
         public void onVideoStarted() {
-
-                Toast.makeText(YoutubeActivity.this,"Video has started",Toast.LENGTH_LONG).show();
+            Toast.makeText(YoutubeActivity.this,"Video has started",Toast.LENGTH_LONG).show();
         }
 
         @Override
         public void onVideoEnded() {
-
-                Toast.makeText(YoutubeActivity.this,"Video has started",Toast.LENGTH_LONG).show();
+            Toast.makeText(YoutubeActivity.this,"Video has started",Toast.LENGTH_LONG).show();
         }
 
         @Override
-        public void onError(YouTubePlayer.ErrorReason errorReason) {
-
-        }
+        public void onError(YouTubePlayer.ErrorReason errorReason) { }
     };
+                
     private final YouTubePlayer.PlaybackEventListener playbackEventListener = new YouTubePlayer.PlaybackEventListener() {
         @Override
         public void onPlaying() {
-
             Toast.makeText(YoutubeActivity.this,"Video has playing",Toast.LENGTH_LONG).show();
         }
 
         @Override
         public void onPaused() {
-
             Toast.makeText(YoutubeActivity.this,"Video is on Pause",Toast.LENGTH_LONG).show();
         }
 
         @Override
         public void onStopped() {
-
             Toast.makeText(YoutubeActivity.this,"Video has stopped. ",Toast.LENGTH_LONG).show();
         }
 
         @Override
-        public void onBuffering(boolean b) {
-
-        }
+        public void onBuffering(boolean b) { }
 
         @Override
-        public void onSeekTo(int i) {
-
-        }
+        public void onSeekTo(int i) { }
     };
 }
