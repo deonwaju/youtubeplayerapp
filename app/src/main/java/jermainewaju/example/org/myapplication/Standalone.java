@@ -17,23 +17,18 @@ public class Standalone extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_standalone);
 
-
-
         Button btnPlayVideo = (Button) findViewById(R.id.btnPlayVideo);
         Button btnPlayList = (Button) findViewById(R.id.btnPlaylist);
 
         btnPlayVideo.setOnClickListener(this);
         btnPlayList.setOnClickListener(this);
 
-//        View.OnClickListener listener = new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        };
-//        btnPlayVideo.setOnClickListener(listener);
-//        btnPlayList.setOnClickListener(listener);
-
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { }
+        };
+        btnPlayVideo.setOnClickListener(listener);
+        btnPlayList.setOnClickListener(listener);
     }
 
     @Override
@@ -53,5 +48,4 @@ public class Standalone extends AppCompatActivity implements View.OnClickListene
             startActivity(intent);
         }
     }
-
 }
